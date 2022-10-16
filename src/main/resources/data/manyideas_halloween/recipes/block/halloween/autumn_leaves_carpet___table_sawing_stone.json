@@ -1,0 +1,8 @@
+{
+	"type":       "manyideas_core:table_sawing_stone",
+	"ingredient": {
+		"tag": "minecraft:leaves"
+	},
+	"result":     "manyideas_halloween:autumn_leaves_carpet",
+	"count":      8
+}

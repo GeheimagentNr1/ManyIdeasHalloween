@@ -1,0 +1,7 @@
+{
+	"type":       "manyideas_core:table_sawing_stone",
+	"ingredient": {
+		"item": "minecraft:jack_o_lantern"
+	},
+	"result":     "manyideas_halloween:pumpkin_lantern"
+}

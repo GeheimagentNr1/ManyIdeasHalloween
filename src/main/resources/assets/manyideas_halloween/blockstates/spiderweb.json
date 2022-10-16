@@ -1,0 +1,24 @@
+{
+	"variants": {
+		"facing=north,variants=0": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_0" },
+		"facing=north,variants=1": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_1" },
+		"facing=north,variants=2": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_2" },
+		"facing=north,variants=3": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_3" },
+		"facing=north,variants=4": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_4" },
+		"facing=east,variants=0":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_0", "y": 90 },
+		"facing=east,variants=1":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_1", "y": 90 },
+		"facing=east,variants=2":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_2", "y": 90 },
+		"facing=east,variants=3":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_3", "y": 90 },
+		"facing=east,variants=4":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_4", "y": 90 },
+		"facing=south,variants=0": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_0", "y": 180 },
+		"facing=south,variants=1": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_1", "y": 180 },
+		"facing=south,variants=2": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_2", "y": 180 },
+		"facing=south,variants=3": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_3", "y": 180 },
+		"facing=south,variants=4": { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_4", "y": 180 },
+		"facing=west,variants=0":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_0", "y": 270 },
+		"facing=west,variants=1":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_1", "y": 270 },
+		"facing=west,variants=2":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_2", "y": 270 },
+		"facing=west,variants=3":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_3", "y": 270 },
+		"facing=west,variants=4":  { "model": "manyideas_halloween:block/halloween/spiderweb/spiderweb_4", "y": 270 }
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"variants": {
+		"facing=north_up":   { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 90, "y": 180 },
+		"facing=north_east": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "y": 270 },
+		"facing=north_down": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 270 },
+		"facing=north_west": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "x": 180, "y": 270 },
+		"facing=east_up":    { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 90, "y": 270 },
+		"facing=east_south": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side" },
+		"facing=east_down":  { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 270, "y": 90 },
+		"facing=east_north": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "x": 180 },
+		"facing=south_up":   { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 90 },
+		"facing=south_west": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "y": 90 },
+		"facing=south_down": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 270, "y": 180 },
+		"facing=south_east": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "x": 180, "y": 90 },
+		"facing=west_up":    { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 90, "y": 90 },
+		"facing=west_north": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "y": 180 },
+		"facing=west_down":  { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 270, "y": 270 },
+		"facing=west_south": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_side", "x": 180, "y": 180 },
+		"facing=up_north":   { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 180 },
+		"facing=up_east":    { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 180, "y": 90 },
+		"facing=up_south":   { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 180, "y": 180 },
+		"facing=up_west":    { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "x": 180, "y": 270 },
+		"facing=down_north": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "y": 180 },
+		"facing=down_east":  { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "y": 270 },
+		"facing=down_south": { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal" },
+		"facing=down_west":  { "model": "manyideas_halloween:block/halloween/spider_plushi/spider_plushi_normal", "y": 90 }
+	}
+}

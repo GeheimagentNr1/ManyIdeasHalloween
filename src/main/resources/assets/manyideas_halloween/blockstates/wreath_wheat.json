@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"facing=north": { "model": "manyideas_halloween:block/halloween/wreath_wheat/wreath_wheat" },
+		"facing=east":  { "model": "manyideas_halloween:block/halloween/wreath_wheat/wreath_wheat", "y": 90 },
+		"facing=south": { "model": "manyideas_halloween:block/halloween/wreath_wheat/wreath_wheat", "y": 180 },
+		"facing=west":  { "model": "manyideas_halloween:block/halloween/wreath_wheat/wreath_wheat", "y": 270 },
+		"facing=up":    { "model": "manyideas_halloween:block/halloween/wreath_wheat/wreath_wheat", "x": 270 },
+		"facing=down":  { "model": "manyideas_halloween:block/halloween/wreath_wheat/wreath_wheat", "x": 90 }
+	}
+}

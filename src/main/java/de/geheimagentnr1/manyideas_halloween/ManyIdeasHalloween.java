@@ -1,4 +1,4 @@
-package de.geheimagentnr1.manyideas_doors;
+package de.geheimagentnr1.manyideas_halloween;
 
 
 import net.minecraftforge.fml.common.Mod;

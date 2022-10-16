@@ -1,0 +1,42 @@
+{
+	"textures": {
+		"0":        "manyideas_halloween:block/halloween/gravestone/gravestone",
+		"particle": "manyideas_halloween:block/halloween/gravestone/gravestone"
+	},
+	"elements": [
+		{
+			"from":  [ 1, 0, 5 ],
+			"to":    [ 15, 2, 11 ],
+			"faces": {
+				"north": { "uv": [ 0, 14, 15, 16 ], "texture": "#0" },
+				"east":  { "uv": [ 0, 14, 6, 16 ], "texture": "#0" },
+				"south": { "uv": [ 0, 14, 15, 16 ], "texture": "#0" },
+				"west":  { "uv": [ 10, 14, 16, 16 ], "texture": "#0" },
+				"up":    { "uv": [ 16, 0, 10, 15 ], "rotation": 90, "texture": "#0" },
+				"down":  { "uv": [ 16, 0, 10, 15 ], "rotation": 90, "texture": "#0", "cullface": "down" }
+			}
+		},
+		{
+			"from":  [ 2.5, 2, 6 ],
+			"to":    [ 13.5, 15, 10 ],
+			"faces": {
+				"north": { "uv": [ 0, 1, 11, 14 ], "texture": "#0" },
+				"east":  { "uv": [ 0, 1, 5, 14 ], "texture": "#0" },
+				"south": { "uv": [ 0, 1, 11, 14 ], "texture": "#0" },
+				"west":  { "uv": [ 0, 1, 5, 14 ], "texture": "#0" },
+				"up":    { "uv": [ 0, 0, 11, 4 ], "texture": "#0" }
+			}
+		},
+		{
+			"from":  [ 3.5, 15, 6 ],
+			"to":    [ 12.5, 16, 10 ],
+			"faces": {
+				"north": { "uv": [ 0, 0, 9, 1 ], "texture": "#0" },
+				"east":  { "uv": [ 0, 0, 5, 1 ], "texture": "#0" },
+				"south": { "uv": [ 0, 0, 9, 1 ], "texture": "#0" },
+				"west":  { "uv": [ 0, 0, 5, 1 ], "texture": "#0" },
+				"up":    { "uv": [ 0, 0, 9, 4 ], "texture": "#0", "cullface": "up" }
+			}
+		}
+	]
+}

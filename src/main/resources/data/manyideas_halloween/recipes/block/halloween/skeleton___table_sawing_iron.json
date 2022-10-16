@@ -1,0 +1,7 @@
+{
+	"type":       "manyideas_core:table_sawing_iron",
+	"ingredient": {
+		"item": "minecraft:bone_block"
+	},
+	"result":     "manyideas_halloween:skeleton"
+}

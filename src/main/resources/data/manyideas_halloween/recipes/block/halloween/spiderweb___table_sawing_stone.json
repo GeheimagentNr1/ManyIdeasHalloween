@@ -1,0 +1,7 @@
+{
+	"type":       "manyideas_core:table_sawing_stone",
+	"ingredient": {
+		"item": "minecraft:cobweb"
+	},
+	"result":     "manyideas_halloween:spiderweb"
+}

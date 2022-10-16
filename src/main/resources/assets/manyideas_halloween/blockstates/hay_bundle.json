@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,y=0": { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_bottom" },
+		"facing=north,y=1": { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_top" },
+		"facing=east,y=0":  { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_bottom", "y": 90 },
+		"facing=east,y=1":  { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_top", "y": 90 },
+		"facing=south,y=0": { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_bottom", "y": 180 },
+		"facing=south,y=1": { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_top", "y": 180 },
+		"facing=west,y=0":  { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_bottom", "y": 270 },
+		"facing=west,y=1":  { "model": "manyideas_halloween:block/halloween/hay_bundle/hay_bundle_top", "y": 270 }
+	}
+}
