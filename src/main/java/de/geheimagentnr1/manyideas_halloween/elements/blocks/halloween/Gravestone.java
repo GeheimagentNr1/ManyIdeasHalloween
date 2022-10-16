@@ -75,7 +75,6 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 				.sound( SoundType.STONE )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull

@@ -62,7 +62,6 @@ public class Spiderweb extends Block implements BlockItemInterface, BlockRenderT
 				.sound( SoundType.STONE )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull

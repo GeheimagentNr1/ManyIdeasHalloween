@@ -5,13 +5,13 @@ import de.geheimagentnr1.manyideas_halloween.ManyIdeasHalloween;
 import de.geheimagentnr1.manyideas_halloween.elements.blocks.ModBlocks;
 import de.geheimagentnr1.manyideas_halloween.elements.item_groups.ModItemGroups;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 
 
 @SuppressWarnings( "unused" )
@@ -27,16 +27,25 @@ public class ModEventHandler {
 	}
 	
 	@SubscribeEvent
-	public static void handleBlockRegistryEvent( RegistryEvent.Register<Block> event ) {
+	public static void handleBlockRegistryEvent( RegisterEvent event ) {
 		
-		event.getRegistry().registerAll( ModBlocks.BLOCKS );
+		if( event.getRegistryKey().equals( ForgeRegistries.Keys.BLOCKS ) ) {
+			event.register(
+				ForgeRegistries.Keys.BLOCKS,
+				registerHelper -> ModBlocks.BLOCKS.forEach( registryEntry -> registerHelper.register(
+					registryEntry.getRegistryName(),
+					registryEntry.getValue()
+				) )
+			);
+		}
 	}
 	
 	@SubscribeEvent
-	public static void handleItemRegistryEvent( RegistryEvent.Register<Item> event ) {
+	public static void handleItemRegistryEvent( RegisterEvent event ) {
 		
-		Item.Properties properties = new Item.Properties().tab( ModItemGroups.MANYIDEAS_HALLOWEEN_ITEM_GROUP );
-		
-		BlockRegistrationHelper.registerBlockItems( event, ModBlocks.BLOCKS, properties );
+		if( event.getRegistryKey().equals( ForgeRegistries.Keys.ITEMS ) ) {
+			Item.Properties properties = new Item.Properties().tab( ModItemGroups.MANYIDEAS_HALLOWEEN_ITEM_GROUP );
+			BlockRegistrationHelper.registerBlockItems( event, ModBlocks.BLOCKS, properties );
+		}
 	}
 }

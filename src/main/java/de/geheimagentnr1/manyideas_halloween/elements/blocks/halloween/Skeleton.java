@@ -78,7 +78,6 @@ public class Skeleton extends Block implements BlockItemInterface, BlockRenderTy
 				.sound( SoundType.BONE_BLOCK )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull

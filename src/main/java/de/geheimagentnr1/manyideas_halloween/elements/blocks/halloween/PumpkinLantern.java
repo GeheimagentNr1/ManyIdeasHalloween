@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -65,7 +66,6 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 				.lightLevel( value -> 15 )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull
@@ -96,9 +96,9 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 	}
 	
 	@Override
-	public void animateTick( @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Random random ) {
+	public void animateTick( @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull RandomSource randomSource ) {
 		
-		float randomFactor = random.nextFloat();
+		float randomFactor = randomSource.nextFloat();
 		Vec3 position = new Vec3( 0.5, 0.5, 0.5 ).add( pos.getX(), pos.getY(), pos.getZ() );
 		
 		if( !state.getValue( BlockStateProperties.HANGING ) ) {
@@ -113,8 +113,8 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 					position.z + 0.5D,
 					SoundEvents.CANDLE_AMBIENT,
 					SoundSource.BLOCKS,
-					1.0F + random.nextFloat(),
-					random.nextFloat() * 0.7F + 0.3F,
+					1.0F + randomSource.nextFloat(),
+					randomSource.nextFloat() * 0.7F + 0.3F,
 					false
 				);
 			}

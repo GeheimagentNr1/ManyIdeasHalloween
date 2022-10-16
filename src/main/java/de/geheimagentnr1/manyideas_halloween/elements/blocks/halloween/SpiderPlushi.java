@@ -42,7 +42,6 @@ public class SpiderPlushi extends EveryDirectionBlock implements BlockItemInterf
 				.sound( SoundType.WOOL )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull

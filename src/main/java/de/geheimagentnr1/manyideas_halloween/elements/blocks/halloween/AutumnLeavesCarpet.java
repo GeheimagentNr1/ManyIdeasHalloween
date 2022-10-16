@@ -30,7 +30,6 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 				.sound( SoundType.GRASS )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	public BlockState getStateForPlacement( BlockPlaceContext context ) {

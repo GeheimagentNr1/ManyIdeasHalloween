@@ -41,7 +41,6 @@ public class WreathWheat extends Block implements BlockItemInterface, BlockRende
 				.sound( SoundType.GRASS )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull

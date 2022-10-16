@@ -37,8 +37,7 @@ public class HayBundle extends MultiBlock implements BlockRenderTypeInterface {
 			BlockBehaviour.Properties.of( Material.GRASS, MaterialColor.COLOR_YELLOW )
 				.strength( 0.5F )
 				.sound( SoundType.GRASS )
-				.noOcclusion(),
-			registry_name
+				.noOcclusion()
 		);
 	}
 	

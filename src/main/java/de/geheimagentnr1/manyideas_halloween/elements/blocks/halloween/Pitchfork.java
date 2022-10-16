@@ -40,7 +40,6 @@ public class Pitchfork extends Block implements BlockItemInterface, BlockRenderT
 				.sound( SoundType.WOOD )
 				.noOcclusion()
 		);
-		setRegistryName( registry_name );
 	}
 	
 	@NotNull
