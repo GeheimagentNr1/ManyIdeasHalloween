@@ -1,7 +1,7 @@
 # ManyIdeas Halloween
 
 This is a Minecraft Forge mod.  
-A mod description can be found on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/many-ideas-doors).  
+A mod description can be found on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/manyideas-halloween).  
 This is a combined work only using and not modifying used libraries.
 
 ## Used libraries
