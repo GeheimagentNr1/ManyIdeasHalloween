@@ -3,10 +3,11 @@ package de.geheimagentnr1.manyideas_halloween.handlers;
 import de.geheimagentnr1.manyideas_core.util.BlockRegistrationHelper;
 import de.geheimagentnr1.manyideas_halloween.ManyIdeasHalloween;
 import de.geheimagentnr1.manyideas_halloween.elements.blocks.ModBlocks;
-import de.geheimagentnr1.manyideas_halloween.elements.item_groups.ModItemGroups;
+import de.geheimagentnr1.manyideas_halloween.elements.creative_mod_tabs.ModCreativeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -44,8 +45,15 @@ public class ModEventHandler {
 	public static void handleItemRegistryEvent( RegisterEvent event ) {
 		
 		if( event.getRegistryKey().equals( ForgeRegistries.Keys.ITEMS ) ) {
-			Item.Properties properties = new Item.Properties().tab( ModItemGroups.MANYIDEAS_HALLOWEEN_ITEM_GROUP );
+			Item.Properties properties = new Item.Properties();
 			BlockRegistrationHelper.registerBlockItems( event, ModBlocks.BLOCKS, properties );
 		}
+	}
+	
+	@SubscribeEvent
+	public static void handleCreativeModeTabRegisterEvent( CreativeModeTabEvent.Register event ) {
+		
+		ModCreativeTabs.CREATIVE_TAB_FACTORIES.forEach( creativeModeTabFactory ->
+			event.registerCreativeModeTab( creativeModeTabFactory.getName(), creativeModeTabFactory ) );
 	}
 }

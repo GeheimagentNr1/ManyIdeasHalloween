@@ -29,8 +29,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
-
 
 public class PumpkinLantern extends LanternBlock implements BlockItemInterface, BlockRenderTypeInterface {
 	
@@ -96,7 +94,11 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 	}
 	
 	@Override
-	public void animateTick( @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull RandomSource randomSource ) {
+	public void animateTick(
+		@NotNull BlockState state,
+		@NotNull Level level,
+		@NotNull BlockPos pos,
+		@NotNull RandomSource randomSource ) {
 		
 		float randomFactor = randomSource.nextFloat();
 		Vec3 position = new Vec3( 0.5, 0.5, 0.5 ).add( pos.getX(), pos.getY(), pos.getZ() );
