@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -57,7 +57,8 @@ public class Spiderweb extends Block implements BlockItemInterface, BlockRenderT
 	public Spiderweb() {
 		
 		super(
-			BlockBehaviour.Properties.of( Material.WEB )
+			BlockBehaviour.Properties.of()
+				.mapColor( MapColor.WOOL )
 				.strength( 4.0F )
 				.sound( SoundType.STONE )
 				.noOcclusion()

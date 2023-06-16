@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +35,8 @@ public class Pitchfork extends Block implements BlockItemInterface, BlockRenderT
 	public Pitchfork() {
 		
 		super(
-			BlockBehaviour.Properties.of( Material.WOOD )
+			BlockBehaviour.Properties.of()
+				.mapColor( MapColor.WOOD )
 				.strength( 0.5F )
 				.sound( SoundType.WOOD )
 				.noOcclusion()

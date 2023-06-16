@@ -10,10 +10,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MapColor;
 
 
 public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterface, BlockRenderTypeInterface {
@@ -25,7 +26,8 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 	public AutumnLeavesCarpet() {
 		
 		super(
-			Properties.of( Material.LEAVES )
+			BlockBehaviour.Properties.of()
+				.mapColor( MapColor.COLOR_ORANGE )
 				.strength( 0.1F )
 				.sound( SoundType.GRASS )
 				.noOcclusion()

@@ -1,0 +1,15 @@
+repositories {
+    maven {
+        name "local-test-repo"
+        url "file:../../ModdingMavenRepositories"
+    }
+    maven {
+        name "minecraft-mods-repo"
+        url "https://secretsoft.jfrog.io/artifactory/minecraft-mods/"
+    }
+}
+
+dependencies {
+    //ManyIdeasCore
+    implementation fg.deobf("de.geheimagentnr1.manyideas_core:ManyIdeasCore-${minecraft_version}:${mic_version}")
+}

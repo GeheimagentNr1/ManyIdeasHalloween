@@ -14,7 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -37,7 +37,8 @@ public class SpiderPlushi extends EveryDirectionBlock implements BlockItemInterf
 	public SpiderPlushi() {
 		
 		super(
-			BlockBehaviour.Properties.of( Material.CLOTH_DECORATION )
+			BlockBehaviour.Properties.of()
+				.mapColor( MapColor.COLOR_BLACK )
 				.strength( 0.1F )
 				.sound( SoundType.WOOL )
 				.noOcclusion()

@@ -4,10 +4,10 @@ import de.geheimagentnr1.manyideas_core.util.BlockRegistrationHelper;
 import de.geheimagentnr1.manyideas_halloween.ManyIdeasHalloween;
 import de.geheimagentnr1.manyideas_halloween.elements.blocks.ModBlocks;
 import de.geheimagentnr1.manyideas_halloween.elements.creative_mod_tabs.ModCreativeTabs;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -51,9 +51,19 @@ public class ModEventHandler {
 	}
 	
 	@SubscribeEvent
-	public static void handleCreativeModeTabRegisterEvent( CreativeModeTabEvent.Register event ) {
+	public static void handleCreativeModeTabRegisterEvent( RegisterEvent event ) {
 		
-		ModCreativeTabs.CREATIVE_TAB_FACTORIES.forEach( creativeModeTabFactory ->
-			event.registerCreativeModeTab( creativeModeTabFactory.getName(), creativeModeTabFactory ) );
+		ModCreativeTabs.CREATIVE_TAB_FACTORIES.forEach( creativeModeTabFactory -> {
+				event.register(
+					Registries.CREATIVE_MODE_TAB,
+					creativeModeTabRegisterHelper -> {
+						creativeModeTabRegisterHelper.register(
+							creativeModeTabFactory.getName(),
+							creativeModeTabFactory.get()
+						);
+					}
+				);
+			}
+		);
 	}
 }

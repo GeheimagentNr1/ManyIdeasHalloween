@@ -13,10 +13,11 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -70,7 +71,8 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 	public Gravestone() {
 		
 		super(
-			Properties.of( Material.STONE )
+			BlockBehaviour.Properties.of()
+				.mapColor( MapColor.STONE )
 				.strength( 2.0F, 6.0F )
 				.sound( SoundType.STONE )
 				.noOcclusion()
