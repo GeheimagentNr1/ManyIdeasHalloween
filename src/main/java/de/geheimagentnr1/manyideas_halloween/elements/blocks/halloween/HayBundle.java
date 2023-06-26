@@ -1,12 +1,9 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockRenderTypeInterface;
 import de.geheimagentnr1.manyideas_core.elements.blocks.template_blocks.multi_block.MultiBlock;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -17,15 +14,18 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 
-public class HayBundle extends MultiBlock implements BlockRenderTypeInterface {
+public class HayBundle extends MultiBlock {
 	
 	
+	@NotNull
 	public static final String registry_name = "hay_bundle";
 	
+	@NotNull
 	private static final VoxelShape TOP_SHAPE = VoxelShapeMemory.createVoxelShape(
 		VoxelShapeVector.create( 4.5, 0, 4.5, 11.5, 13, 11.5 )
 	);
 	
+	@NotNull
 	private static final VoxelShape BOTTOM_SHAPE = VoxelShapeMemory.createVoxelShape(
 		VoxelShapeVector.create( 4.5, 0, 4.5, 11.5, 16, 11.5 )
 	);
@@ -80,17 +80,5 @@ public class HayBundle extends MultiBlock implements BlockRenderTypeInterface {
 		return new boolean[][][] {
 			{ { true }, { true } }
 		};
-	}
-	
-	@Override
-	public Item getBlockItem( Item.Properties _properties ) {
-		
-		return createBlockItem( this, _properties, registry_name );
-	}
-	
-	@Override
-	public RenderType getRenderType() {
-		
-		return RenderType.cutout();
 	}
 }

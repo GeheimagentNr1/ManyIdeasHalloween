@@ -1,4 +1,5 @@
 {
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0":        "minecraft:block/spruce_log",
 		"1":        "manyideas_halloween:block/halloween/scarecrow/wheat_bundle_side",

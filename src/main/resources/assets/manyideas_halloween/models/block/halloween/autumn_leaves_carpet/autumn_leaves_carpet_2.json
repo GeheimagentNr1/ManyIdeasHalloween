@@ -1,5 +1,6 @@
 {
 	"parent":   "block/thin_block",
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0":        "manyideas_halloween:block/halloween/autumn_leaves_carpet/autumn_leaves_carpet_2",
 		"particle": "manyideas_halloween:block/halloween/autumn_leaves_carpet/autumn_leaves_carpet_2"

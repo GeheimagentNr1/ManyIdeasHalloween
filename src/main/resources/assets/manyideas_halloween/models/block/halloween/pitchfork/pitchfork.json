@@ -1,4 +1,5 @@
 {
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0":        "block/blast_furnace_side",
 		"1":        "block/stripped_spruce_log",

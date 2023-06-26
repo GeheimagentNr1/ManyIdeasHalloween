@@ -1,4 +1,5 @@
 {
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0":        "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_0",
 		"2":        "block/candle_lit",

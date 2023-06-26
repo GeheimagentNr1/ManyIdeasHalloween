@@ -1,14 +1,11 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockRenderTypeInterface;
 import de.geheimagentnr1.manyideas_core.elements.blocks.template_blocks.multi_block.MultiBlock;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
 import de.geheimagentnr1.manyideas_halloween.elements.block_state_properties.ModBlockStateProperties;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -21,13 +18,16 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 
-public class Scarecrow extends MultiBlock implements BlockRenderTypeInterface {
+public class Scarecrow extends MultiBlock {
 	
 	
+	@NotNull
 	public static final String registry_name = "scarecrow";
 	
+	@NotNull
 	private static final VoxelShapeMemory TOP_SHAPE = VoxelShapeMemory.createHorizontalVoxelShapes(
 		Direction.SOUTH,
 		VoxelShapeVector.create( 7, 0, 7, 9, 3, 9 ),
@@ -54,6 +54,7 @@ public class Scarecrow extends MultiBlock implements BlockRenderTypeInterface {
 		VoxelShapeVector.create( 1, 4.5, 12, 15, 6.5, 14.5 )
 	);
 	
+	@NotNull
 	private static final VoxelShapeMemory BOTTOM_SHAPE = VoxelShapeMemory.createHorizontalAxisVoxelShapes(
 		Direction.NORTH,
 		VoxelShapeVector.create( 7, 0, 7, 9, 10, 9 ),
@@ -115,7 +116,9 @@ public class Scarecrow extends MultiBlock implements BlockRenderTypeInterface {
 		};
 	}
 	
-	public BlockState getStateForPlacement( BlockPlaceContext context ) {
+	@Nullable
+	@Override
+	public BlockState getStateForPlacement( @NotNull BlockPlaceContext context ) {
 		
 		BlockState state = super.getStateForPlacement( context );
 		if( state == null ) {
@@ -124,21 +127,9 @@ public class Scarecrow extends MultiBlock implements BlockRenderTypeInterface {
 		return state.setValue( ModBlockStateProperties.FIVE_VARIANTS, context.getLevel().getRandom().nextInt( 5 ) );
 	}
 	
-	protected void createBlockStateDefinition( StateDefinition.Builder<Block, BlockState> builder ) {
+	protected void createBlockStateDefinition( @NotNull StateDefinition.Builder<Block, BlockState> builder ) {
 		
 		super.createBlockStateDefinition( builder );
 		builder.add( ModBlockStateProperties.FIVE_VARIANTS );
-	}
-	
-	@Override
-	public Item getBlockItem( Item.Properties _properties ) {
-		
-		return createBlockItem( this, _properties, registry_name );
-	}
-	
-	@Override
-	public RenderType getRenderType() {
-		
-		return RenderType.cutout();
 	}
 }

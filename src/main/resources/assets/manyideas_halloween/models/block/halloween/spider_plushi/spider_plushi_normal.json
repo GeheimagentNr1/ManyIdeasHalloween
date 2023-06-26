@@ -1,4 +1,5 @@
 {
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0":        "manyideas_halloween:block/halloween/spider_plushi/spider_plushi",
 		"1":        "block/bone_block_side",

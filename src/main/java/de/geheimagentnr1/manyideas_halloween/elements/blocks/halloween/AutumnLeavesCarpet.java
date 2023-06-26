@@ -1,9 +1,7 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockItemInterface;
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockRenderTypeInterface;
 import de.geheimagentnr1.manyideas_halloween.elements.block_state_properties.ModBlockStateProperties;
-import net.minecraft.client.renderer.RenderType;
+import de.geheimagentnr1.minecraft_forge_api.elements.blocks.BlockItemInterface;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -15,11 +13,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 
-public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterface, BlockRenderTypeInterface {
+public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterface {
 	
 	
+	@NotNull
 	public static final String registry_name = "autumn_leaves_carpet";
 	
 	
@@ -34,7 +35,9 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 		);
 	}
 	
-	public BlockState getStateForPlacement( BlockPlaceContext context ) {
+	@Nullable
+	@Override
+	public BlockState getStateForPlacement( @NotNull BlockPlaceContext context ) {
 		
 		return defaultBlockState().setValue(
 			BlockStateProperties.HORIZONTAL_FACING,
@@ -42,22 +45,17 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 		).setValue( ModBlockStateProperties.FIVE_VARIANTS, context.getLevel().getRandom().nextInt( 5 ) );
 	}
 	
-	protected void createBlockStateDefinition( StateDefinition.Builder<Block, BlockState> builder ) {
+	protected void createBlockStateDefinition( @NotNull StateDefinition.Builder<Block, BlockState> builder ) {
 		
 		builder.add( BlockStateProperties.HORIZONTAL_FACING, ModBlockStateProperties.FIVE_VARIANTS );
 	}
 	
+	@NotNull
 	@Override
-	public Item getBlockItem( Item.Properties _properties ) {
+	public Item getBlockItem( @NotNull Block block, @NotNull Item.Properties properties ) {
 		
-		Item item = createBlockItem( this, _properties, registry_name );
+		Item item = BlockItemInterface.super.getBlockItem( block, properties );
 		ComposterBlock.COMPOSTABLES.put( item, 0.0375F );
 		return item;
-	}
-	
-	@Override
-	public RenderType getRenderType() {
-		
-		return RenderType.cutout();
 	}
 }

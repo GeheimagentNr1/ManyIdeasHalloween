@@ -1,14 +1,11 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockItemInterface;
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockRenderTypeInterface;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
 import de.geheimagentnr1.manyideas_halloween.elements.block_state_properties.ModBlockStateProperties;
-import net.minecraft.client.renderer.RenderType;
+import de.geheimagentnr1.minecraft_forge_api.elements.blocks.BlockItemInterface;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -22,14 +19,16 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 
-public class Gravestone extends Block implements BlockItemInterface, BlockRenderTypeInterface {
+public class Gravestone extends Block implements BlockItemInterface {
 	
 	
+	@NotNull
 	public static final String registry_name = "gravestone";
 	
-	//TODO: Variants
+	@NotNull
 	private static final VoxelShapeMemory VARIANT_0_SHAPE = VoxelShapeMemory.createHorizontalAxisVoxelShapes(
 		Direction.NORTH,
 		VoxelShapeVector.create( 1, 0, 5, 15, 2, 11 ),
@@ -37,6 +36,7 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 		VoxelShapeVector.create( 3.5, 15, 6, 12.5, 16, 10 )
 	);
 	
+	@NotNull
 	private static final VoxelShapeMemory VARIANT_1_SHAPE = VoxelShapeMemory.createHorizontalAxisVoxelShapes(
 		Direction.NORTH,
 		VoxelShapeVector.create( 6, 0, 6, 10, 2, 10 ),
@@ -47,11 +47,13 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 		VoxelShapeVector.create( 1, 11, 7, 4, 13, 9 )
 	);
 	
+	@NotNull
 	private static final VoxelShape VARIANT_2_SHAPE = VoxelShapeMemory.createVoxelShape(
 		VoxelShapeVector.create( 3, 0, 3, 13, 2, 13 ),
 		VoxelShapeVector.create( 4, 2, 4, 12, 10, 12 )
 	);
 	
+	@NotNull
 	private static final VoxelShapeMemory VARIANT_3_SHAPE = VoxelShapeMemory.createHorizontalVoxelShapes(
 		Direction.NORTH,
 		VoxelShapeVector.create( 1, 0, 1, 15, 2, 15 ),
@@ -62,6 +64,7 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 		VoxelShapeVector.create( 2, 6, 12, 14, 7, 14 )
 	);
 	
+	@NotNull
 	private static final VoxelShape VARIANT_4_SHAPE = VoxelShapeMemory.createVoxelShape(
 		VoxelShapeVector.create( 1, 0, 1, 15, 2, 15 ),
 		VoxelShapeVector.create( 2, 2, 2, 14, 4, 14 ),
@@ -99,7 +102,9 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 		};
 	}
 	
-	public BlockState getStateForPlacement( BlockPlaceContext context ) {
+	@Nullable
+	@Override
+	public BlockState getStateForPlacement( @NotNull BlockPlaceContext context ) {
 		
 		return defaultBlockState().setValue(
 			BlockStateProperties.HORIZONTAL_FACING,
@@ -107,20 +112,8 @@ public class Gravestone extends Block implements BlockItemInterface, BlockRender
 		).setValue( ModBlockStateProperties.FIVE_VARIANTS, context.getLevel().getRandom().nextInt( 5 ) );
 	}
 	
-	protected void createBlockStateDefinition( StateDefinition.Builder<Block, BlockState> builder ) {
+	protected void createBlockStateDefinition( @NotNull StateDefinition.Builder<Block, BlockState> builder ) {
 		
 		builder.add( BlockStateProperties.HORIZONTAL_FACING, ModBlockStateProperties.FIVE_VARIANTS );
-	}
-	
-	@Override
-	public Item getBlockItem( Item.Properties _properties ) {
-		
-		return createBlockItem( this, _properties, registry_name );
-	}
-	
-	@Override
-	public RenderType getRenderType() {
-		
-		return RenderType.cutout();
 	}
 }

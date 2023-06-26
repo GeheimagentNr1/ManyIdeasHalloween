@@ -1,4 +1,5 @@
 {
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0":        "manyideas_halloween:block/halloween/gravestone/gravestone",
 		"1":        "block/wither_rose",

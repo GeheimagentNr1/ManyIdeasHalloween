@@ -1,11 +1,13 @@
 repositories {
     maven {
-        name "local-test-repo"
-        url "file:../../ModdingMavenRepositories"
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
     }
     maven {
-        name "minecraft-mods-repo"
-        url "https://secretsoft.jfrog.io/artifactory/minecraft-mods/"
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
     }
 }
 

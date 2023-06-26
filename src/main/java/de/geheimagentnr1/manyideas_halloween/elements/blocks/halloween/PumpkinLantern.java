@@ -1,17 +1,14 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockItemInterface;
-import de.geheimagentnr1.manyideas_core.elements.blocks.BlockRenderTypeInterface;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
 import de.geheimagentnr1.manyideas_halloween.elements.block_state_properties.ModBlockStateProperties;
-import net.minecraft.client.renderer.RenderType;
+import de.geheimagentnr1.minecraft_forge_api.elements.blocks.BlockItemInterface;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,13 +24,16 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 
-public class PumpkinLantern extends LanternBlock implements BlockItemInterface, BlockRenderTypeInterface {
+public class PumpkinLantern extends LanternBlock implements BlockItemInterface {
 	
 	
+	@NotNull
 	public static final String registry_name = "pumpkin_lantern";
 	
+	@NotNull
 	private static final VoxelShape HANGING_SHAPE = VoxelShapeMemory.createVoxelShape(
 		VoxelShapeVector.create( 5, 7, 4, 11, 9, 12 ),
 		VoxelShapeVector.create( 4, 1, 5, 12, 9, 11 ),
@@ -46,6 +46,7 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 		VoxelShapeVector.create( 7, 10, 7, 9, 16, 9 )
 	);
 	
+	@NotNull
 	private static final VoxelShape STANDING_SHAPE = VoxelShapeMemory.createVoxelShape(
 		VoxelShapeVector.create( 5, 6, 4, 11, 8, 12 ),
 		VoxelShapeVector.create( 4, 0, 5, 12, 8, 11 ),
@@ -81,6 +82,8 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 		}
 	}
 	
+	@Nullable
+	@Override
 	public BlockState getStateForPlacement( @NotNull BlockPlaceContext context ) {
 		
 		BlockState state = super.getStateForPlacement( context );
@@ -129,17 +132,5 @@ public class PumpkinLantern extends LanternBlock implements BlockItemInterface, 
 		
 		super.createBlockStateDefinition( builder );
 		builder.add( BlockStateProperties.HORIZONTAL_FACING, ModBlockStateProperties.FIVE_VARIANTS );
-	}
-	
-	@Override
-	public Item getBlockItem( Item.Properties _properties ) {
-		
-		return createBlockItem( this, _properties, registry_name );
-	}
-	
-	@Override
-	public RenderType getRenderType() {
-		
-		return RenderType.cutout();
 	}
 }
