@@ -13,5 +13,5 @@ repositories {
 
 dependencies {
     //ManyIdeasCore
-    implementation fg.deobf("de.geheimagentnr1.manyideas_core:ManyIdeasCore-${minecraft_version}:${mic_version}")
+    implementation "de.geheimagentnr1.manyideas_core:ManyIdeasCore-${minecraft_version}:${mic_version}"
 }
