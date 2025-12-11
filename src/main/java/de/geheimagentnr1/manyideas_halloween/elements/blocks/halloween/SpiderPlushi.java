@@ -5,7 +5,7 @@ import de.geheimagentnr1.manyideas_core.elements.block_state_properties.ModBlock
 import de.geheimagentnr1.manyideas_core.elements.blocks.template_blocks.EveryDirectionBlock;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.EveryDirectionFacingVoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
-import de.geheimagentnr1.minecraft_forge_api.elements.blocks.BlockItemInterface;
+import de.geheimagentnr1.manyideas_core.core.elements.blocks.BlockItemInterface;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.SoundType;

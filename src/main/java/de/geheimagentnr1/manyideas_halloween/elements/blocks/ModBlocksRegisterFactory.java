@@ -1,12 +1,12 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks;
 
 import de.geheimagentnr1.manyideas_halloween.ManyIdeasHalloween;
+import de.geheimagentnr1.manyideas_core.core.elements.blocks.BlocksRegisterFactory;
+import de.geheimagentnr1.manyideas_core.core.registry.RegistryEntry;
 import de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween.*;
-import de.geheimagentnr1.minecraft_forge_api.elements.blocks.BlocksRegisterFactory;
-import de.geheimagentnr1.minecraft_forge_api.registry.RegistryEntry;
-import de.geheimagentnr1.minecraft_forge_api.registry.RegistryKeys;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.ObjectHolder;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -28,45 +28,38 @@ public class ModBlocksRegisterFactory extends BlocksRegisterFactory {
 	
 	//Halloween
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + AutumnLeavesCarpet.registry_name )
 	public static AutumnLeavesCarpet AUTUMN_LEAVES_CARPET;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + Gravestone.registry_name )
 	public static Gravestone GRAVESTONE;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + HayBundle.registry_name )
 	public static HayBundle HAY_BUNDLE;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + Pitchfork.registry_name )
 	public static Pitchfork PITCHFORK;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + PumpkinLantern.registry_name )
 	public static PumpkinLantern PUMPKIN_LANTERN;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + Scarecrow.registry_name )
 	public static Scarecrow SCARECROW;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + Skeleton.registry_name )
 	public static Skeleton SKELETON;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + SpiderPlushi.registry_name )
 	public static SpiderPlushi SPIDER_PLUSHI;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + Spiderweb.registry_name )
 	public static Spiderweb SPIDERWEB;
 	
-	@ObjectHolder( registryName = RegistryKeys.BLOCKS,
-		value = ManyIdeasHalloween.MODID + ":" + WreathWheat.registry_name )
 	public static WreathWheat WREATH_WEATH;
+	
+	@NotNull
+	@Override
+	protected String getModId() {
+		
+		return ManyIdeasHalloween.MODID;
+	}
+	
+	@SubscribeEvent
+	public void registerEvent( @NotNull RegisterEvent event ) {
+		
+		doRegisterEvent( event );
+	}
 	
 	@NotNull
 	@Override
