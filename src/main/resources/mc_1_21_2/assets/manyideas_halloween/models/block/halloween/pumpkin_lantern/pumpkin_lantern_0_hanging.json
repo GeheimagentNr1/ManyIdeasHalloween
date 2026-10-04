@@ -3,7 +3,7 @@
 	"textures": {
 		"0":        "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_0",
 		"2":        "block/candle_lit",
-		"3":        "minecraft:block/iron_chain",
+		"3":        "block/chain",
 		"particle": "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_0"
 	},
 	"elements": [

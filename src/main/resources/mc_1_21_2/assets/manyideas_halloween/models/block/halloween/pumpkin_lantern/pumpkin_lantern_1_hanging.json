@@ -1,10 +1,10 @@
 {
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"0":        "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_3",
+		"0":        "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_1",
 		"2":        "block/candle_lit",
-		"3":        "minecraft:block/iron_chain",
-		"particle": "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_3"
+		"3":        "block/chain",
+		"particle": "manyideas_halloween:block/halloween/scarecrow/scarecrow_head_1"
 	},
 	"elements": [
 		{

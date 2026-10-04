@@ -6,13 +6,13 @@
   "overlays": {
     "entries": [
       {
-        "directory": "mc_1_21_9",
+        "directory": "mc_1_21_2",
         "formats": [
-          65,
-          2147483647
+          34,
+          64
         ],
-        "min_format": 65,
-        "max_format": 2147483647
+        "min_format": 34,
+        "max_format": 64
       }
     ]
   }
