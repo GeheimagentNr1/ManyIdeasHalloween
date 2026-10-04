@@ -6,7 +6,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CarpetBlock;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -54,8 +53,8 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 	@Override
 	public Item getBlockItem( @NotNull Block block, @NotNull Item.Properties properties ) {
 		
-		Item item = BlockItemInterface.super.getBlockItem( block, properties );
-		ComposterBlock.COMPOSTABLES.put( item, 0.0375F );
-		return item;
+		//Compostable via data/neoforge/data_maps/item/compostables.json - NeoForge's composter only reads the data map,
+		//ComposterBlock.COMPOSTABLES is ignored
+		return BlockItemInterface.super.getBlockItem( block, properties );
 	}
 }
