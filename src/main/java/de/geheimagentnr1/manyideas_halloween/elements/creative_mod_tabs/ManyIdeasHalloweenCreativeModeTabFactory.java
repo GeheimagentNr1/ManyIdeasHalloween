@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -45,9 +44,8 @@ public class ManyIdeasHalloweenCreativeModeTabFactory implements CreativeModeTab
 	@Override
 	public List<RegistryEntry<Item>> getDisplayItems() {
 		
-		return modBlocksRegisterFactory.getBlocks().stream()
-			.map( entry -> RegistryEntry.create( entry.getName(), entry.getValue().asItem() ) )
-			.collect( Collectors.toList() );
+		// The block items are already added via getDisplayBlocks(), adding them twice crashes NeoForge 26.2+
+		return List.of();
 	}
 	
 	@NotNull
