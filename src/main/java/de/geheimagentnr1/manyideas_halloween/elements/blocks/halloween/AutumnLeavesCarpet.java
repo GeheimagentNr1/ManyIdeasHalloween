@@ -1,5 +1,9 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
+import de.geheimagentnr1.manyideas_halloween.ManyIdeasHalloween;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
 import de.geheimagentnr1.manyideas_core.core.registry.RegistryHelper;
 import de.geheimagentnr1.manyideas_core.core.elements.blocks.BlockItemInterface;
 import de.geheimagentnr1.manyideas_halloween.elements.block_state_properties.ModBlockStateProperties;
@@ -54,8 +58,14 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 	@Override
 	public Item getBlockItem( @NotNull Block block, @NotNull Item.Properties properties ) {
 		
-		//Compostable via data/neoforge/data_maps/item/compostables.json - NeoForge's composter only reads the data map,
-		//ComposterBlock.COMPOSTABLES is ignored
-		return BlockItemInterface.super.getBlockItem( block, properties );
+		//Since 26.3 compostability is an item component; the chance (3.75 %) is the context int provider
+		//data/manyideas_halloween/context_int_provider/compostable/autumn_leaves_carpet.json
+		return BlockItemInterface.super.getBlockItem(
+			block,
+			properties.compostable( ResourceKey.create(
+				Registries.CONTEXT_INT_PROVIDER,
+				Identifier.fromNamespaceAndPath( ManyIdeasHalloween.MODID, "compostable/" + registry_name )
+			) )
+		);
 	}
 }

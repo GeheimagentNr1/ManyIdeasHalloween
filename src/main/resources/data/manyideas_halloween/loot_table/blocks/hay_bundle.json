@@ -1,28 +1,38 @@
 {
-	"type":  "minecraft:block",
+	"type": "minecraft:block",
 	"pools": [
 		{
-			"rolls":      1,
-			"entries":    [
+			"rolls": 1,
+			"entries": [
 				{
-					"type":       "minecraft:item",
+					"type": "minecraft:item",
 					"conditions": [
 						{
-							"condition":  "minecraft:block_state_property",
-							"block":      "manyideas_halloween:hay_bundle",
+							"condition": "minecraft:block_state_property",
+							"block": "manyideas_halloween:hay_bundle",
 							"properties": {
 								"y": "0"
 							}
 						}
 					],
-					"name":       "manyideas_halloween:hay_bundle"
+					"name": "manyideas_halloween:hay_bundle",
+					"condition": {
+						"type": "minecraft:match_block",
+						"blocks": "manyideas_halloween:hay_bundle",
+						"state": {
+							"y": "0"
+						}
+					}
 				}
 			],
 			"conditions": [
 				{
 					"condition": "minecraft:survives_explosion"
 				}
-			]
+			],
+			"condition": {
+				"type": "minecraft:survives_explosion"
+			}
 		}
 	]
 }
