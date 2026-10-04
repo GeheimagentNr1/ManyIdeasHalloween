@@ -2,5 +2,18 @@
   "pack": {
     "description": "${mod_id} resources",
     "pack_format": 34
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "mc_1_21_9",
+        "formats": [
+          65,
+          2147483647
+        ],
+        "min_format": 65,
+        "max_format": 2147483647
+      }
+    ]
   }
 }
