@@ -1,5 +1,6 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
+import de.geheimagentnr1.manyideas_core.core.registry.RegistryHelper;
 import de.geheimagentnr1.manyideas_core.core.elements.blocks.BlockItemInterface;
 import de.geheimagentnr1.manyideas_halloween.elements.block_state_properties.ModBlockStateProperties;
 import net.minecraft.world.item.Item;
@@ -26,7 +27,7 @@ public class AutumnLeavesCarpet extends CarpetBlock implements BlockItemInterfac
 	public AutumnLeavesCarpet() {
 		
 		super(
-			BlockBehaviour.Properties.of()
+			RegistryHelper.withBlockId( BlockBehaviour.Properties.of() )
 				.mapColor( MapColor.COLOR_ORANGE )
 				.strength( 0.1F )
 				.sound( SoundType.GRASS )

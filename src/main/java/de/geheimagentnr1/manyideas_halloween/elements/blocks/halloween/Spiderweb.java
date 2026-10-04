@@ -1,5 +1,6 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
+import de.geheimagentnr1.manyideas_core.core.registry.RegistryHelper;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
 import de.geheimagentnr1.manyideas_core.core.elements.blocks.BlockItemInterface;
@@ -61,7 +62,7 @@ public class Spiderweb extends Block implements BlockItemInterface {
 	public Spiderweb() {
 		
 		super(
-			BlockBehaviour.Properties.of()
+			RegistryHelper.withBlockId( BlockBehaviour.Properties.of() )
 				.mapColor( MapColor.WOOL )
 				.strength( 4.0F )
 				.sound( SoundType.STONE )

@@ -1,22 +1,16 @@
 {
-	"type":    "minecraft:crafting_shaped",
+	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"P",
 		"H",
 		"W"
 	],
-	"key":     {
-		"P": {
-			"item": "minecraft:carved_pumpkin"
-		},
-		"H": {
-			"item": "minecraft:hay_block"
-		},
-		"W": {
-			"item": "manyideas_core:wood_stripped_smooth_spruce"
-		}
+	"key": {
+		"P": "minecraft:carved_pumpkin",
+		"H": "minecraft:hay_block",
+		"W": "manyideas_core:wood_stripped_smooth_spruce"
 	},
-	"result":  {
+	"result": {
 		"id": "manyideas_halloween:scarecrow"
 	}
 }

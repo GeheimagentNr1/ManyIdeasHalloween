@@ -1,5 +1,6 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
+import de.geheimagentnr1.manyideas_core.core.registry.RegistryHelper;
 import de.geheimagentnr1.manyideas_core.elements.blocks.template_blocks.multi_block.MultiBlock;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
@@ -65,7 +66,7 @@ public class Scarecrow extends MultiBlock {
 	public Scarecrow() {
 		
 		super(
-			BlockBehaviour.Properties.of()
+			RegistryHelper.withBlockId( BlockBehaviour.Properties.of() )
 				.mapColor( MapColor.COLOR_YELLOW )
 				.strength( 0.5F )
 				.sound( SoundType.GRASS )

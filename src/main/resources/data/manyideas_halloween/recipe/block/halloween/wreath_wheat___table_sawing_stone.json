@@ -1,7 +1,5 @@
 {
-	"type":       "manyideas_core:table_sawing_stone",
-	"ingredient": {
-		"item": "minecraft:hay_block"
-	},
-	"result":     "manyideas_halloween:wreath_wheat"
+	"type": "manyideas_core:table_sawing_stone",
+	"ingredient": "minecraft:hay_block",
+	"result": "manyideas_halloween:wreath_wheat"
 }

@@ -1,5 +1,6 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
+import de.geheimagentnr1.manyideas_core.core.registry.RegistryHelper;
 import de.geheimagentnr1.manyideas_core.elements.block_state_properties.EveryDirectionFacing;
 import de.geheimagentnr1.manyideas_core.elements.block_state_properties.ModBlockStateProperties;
 import de.geheimagentnr1.manyideas_core.elements.blocks.template_blocks.EveryDirectionBlock;
@@ -36,7 +37,7 @@ public class SpiderPlushi extends EveryDirectionBlock implements BlockItemInterf
 	public SpiderPlushi() {
 		
 		super(
-			BlockBehaviour.Properties.of()
+			RegistryHelper.withBlockId( BlockBehaviour.Properties.of() )
 				.mapColor( MapColor.COLOR_BLACK )
 				.strength( 0.1F )
 				.sound( SoundType.WOOL )

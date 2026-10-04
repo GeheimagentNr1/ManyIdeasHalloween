@@ -1,6 +1,7 @@
 package de.geheimagentnr1.manyideas_halloween.elements.blocks.halloween;
 
 
+import de.geheimagentnr1.manyideas_core.core.registry.RegistryHelper;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeMemory;
 import de.geheimagentnr1.manyideas_core.util.voxel_shapes.VoxelShapeVector;
 import de.geheimagentnr1.manyideas_core.core.elements.blocks.BlockItemInterface;
@@ -36,7 +37,7 @@ public class WreathWheat extends Block implements BlockItemInterface {
 	public WreathWheat() {
 		
 		super(
-			BlockBehaviour.Properties.of()
+			RegistryHelper.withBlockId( BlockBehaviour.Properties.of() )
 				.mapColor( MapColor.COLOR_YELLOW )
 				.strength( 0.5F )
 				.sound( SoundType.GRASS )

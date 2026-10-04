@@ -66,16 +66,16 @@ public class ModBlocksRegisterFactory extends BlocksRegisterFactory {
 	protected List<RegistryEntry<Block>> blocks() {
 		
 		return List.of(//BCPFINRLT
-			RegistryEntry.create( AutumnLeavesCarpet.registry_name, new AutumnLeavesCarpet() ),//BCPFINRLT
-			RegistryEntry.create( Gravestone.registry_name, new Gravestone() ),//BCPFINRLT
-			RegistryEntry.create( HayBundle.registry_name, new HayBundle() ),//BCPFINRLT
-			RegistryEntry.create( Pitchfork.registry_name, new Pitchfork() ),//BCPFINRLT
-			RegistryEntry.create( PumpkinLantern.registry_name, new PumpkinLantern() ),//BCPFINRLT
-			RegistryEntry.create( Scarecrow.registry_name, new Scarecrow() ),//BCPFINRLT
-			RegistryEntry.create( Skeleton.registry_name, new Skeleton() ),//BCPFINRLT
-			RegistryEntry.create( SpiderPlushi.registry_name, new SpiderPlushi() ),//BCPFINRLT
-			RegistryEntry.create( Spiderweb.registry_name, new Spiderweb() ),//BCPFINRLT
-			RegistryEntry.create( WreathWheat.registry_name, new WreathWheat() )//BCPFINRLT
+			RegistryEntry.create( AutumnLeavesCarpet.registry_name, () -> new AutumnLeavesCarpet() ),//BCPFINRLT
+			RegistryEntry.create( Gravestone.registry_name, () -> new Gravestone() ),//BCPFINRLT
+			RegistryEntry.create( HayBundle.registry_name, () -> new HayBundle() ),//BCPFINRLT
+			RegistryEntry.create( Pitchfork.registry_name, () -> new Pitchfork() ),//BCPFINRLT
+			RegistryEntry.create( PumpkinLantern.registry_name, () -> new PumpkinLantern() ),//BCPFINRLT
+			RegistryEntry.create( Scarecrow.registry_name, () -> new Scarecrow() ),//BCPFINRLT
+			RegistryEntry.create( Skeleton.registry_name, () -> new Skeleton() ),//BCPFINRLT
+			RegistryEntry.create( SpiderPlushi.registry_name, () -> new SpiderPlushi() ),//BCPFINRLT
+			RegistryEntry.create( Spiderweb.registry_name, () -> new Spiderweb() ),//BCPFINRLT
+			RegistryEntry.create( WreathWheat.registry_name, () -> new WreathWheat() )//BCPFINRLT
 		);
 	}
 }

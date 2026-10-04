@@ -1,7 +1,5 @@
 {
-	"type":       "manyideas_core:table_sawing_diamond",
-	"ingredient": {
-		"item": "minecraft:stone"
-	},
-	"result":     "manyideas_halloween:gravestone"
+	"type": "manyideas_core:table_sawing_diamond",
+	"ingredient": "minecraft:stone",
+	"result": "manyideas_halloween:gravestone"
 }
