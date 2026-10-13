@@ -1,135 +1,48 @@
 # CLAUDE.md - ManyIdeas Halloween
 
-## Projekt-Übersicht
+10 gruselige Halloween-Dekorationsblöcke: Herbstlaub-Teppich, Grabstein, Heuballen, Mistgabel, hängende Kürbislaterne, Vogelscheuche, Skelett, Spinnen-Plüschtier, Spinnennetz, Weizenkranz. Mod-ID `manyideas_halloween`, Package `de.geheimagentnr1.manyideas_halloween`, Client+Server. Baut auf ManyIdeasCore auf.
 
-**ManyIdeas Halloween** ist ein NeoForge Minecraft Mod.
-- **Mod ID**: `manyideas_halloween`
-- **Package**: `de.geheimagentnr1.manyideas_halloween`
-- **Java Version**: 21 (`develop_26.1`/`develop_26.3`: 25, `jdk-25.0.4.7-hotspot`)
-- **NeoForge Version**: je Branch, siehe Tabelle
+Diese Datei ist auf allen `develop_*`-Branches identisch; Quelle: `../Docs/mod-claude/ManyIdeasHalloween.md` (Änderungen dort, dann `Docs/tools/sync_mod_claude_md.sh`). Versionsstand: [`../Docs/VERSIONEN.md`](../Docs/VERSIONEN.md).
 
-| Branch | MC | Range | NeoForge (kompiliert gegen) | Core-Jar (`mic_minecraft_version`) | Hinweis |
-|---|---|---|---|---|---|
-| `develop_1.21.1` | 1.21.1 | `[1.21.1,1.21.2)` | `21.1.216` | 1.21.1 | Fix-Release 2.0.2 (Herbstlaub-Teppich kompostierbar über die Data-Map `data/neoforge/data_maps/item/compostables.json`) |
-| `develop_1.21.2` | 1.21.2 - 1.21.11 | `[1.21.2,1.21.12)` | `21.2.1-beta` | 1.21.2 | Ein Jar (Bytecode identisch 1.21.2 - 1.21.11); Blöcke per Supplier + `RegistryHelper.withBlockId`, Rezept-JSON, Client-Item-Definitionen, Ketten-Overlay (siehe unten) |
-| `develop_26.1` | 26.1 - 26.2 | `[26.1,26.3)` | `26.1.0.19-beta` (Java 25) | 26.1 | 26.x-Tooling, Kette direkt `minecraft:block/iron_chain` |
-| `develop_26.3` | 26.3 | `[26.3,27)` | `26.3.0.36-beta` (Java 25) | 26.3 | Kompostierbarkeit als Item-Komponente (`Item.Properties.compostable(..)` + `context_int_provider/compostable/autumn_leaves_carpet.json`), Loot in beiden Formaten |
+## Versionen
 
-Alle 2.0.2, released 2026-10-04 (ingame getestet auf 1.21.1, 1.21.2, 1.21.8, 1.21.9, 1.21.11, 26.1, 26.2, 26.3), abhängig von ManyIdeasCore `[3.0.2,)`. Die Core-Abhängigkeit hängt an `mic_minecraft_version`, damit ein Jar mehrere Core-Jars abdecken kann. Details: [`../Docs/migrations/1.21.1-to-1.21.2.md`](../Docs/migrations/1.21.1-to-1.21.2.md) 4i, [`../Docs/migrations/1.21.11-to-26.1.md`](../Docs/migrations/1.21.11-to-26.1.md).
-
-**Kette der hängenden Kürbislaterne (1.21.2-Jar):** MC 1.21.9 hat `block/chain` in `block/iron_chain` umbenannt. Die Modelle im Basis-Paket nutzen `iron_chain`; das Overlay `mc_1_21_2` (in `pack.mcmeta` mit `formats` **und** `min_format`/`max_format` `[34,64]`) liefert für 1.21.2 - 1.21.8 die alten Modelle mit `block/chain`. Umgekehrt (Overlay ab 65 mit `formats`) verwirft der 1.21.9+-Client das ganze Overlay - der Server meldet nichts.
-
-**Creative-Tab:** Die Blöcke kommen über `getDisplayBlocks()`, `getDisplayItems()` ist leer. Beide gefüllt fügte jedes Item doppelt ein - ab NeoForge 26.2.0.88 Absturz beim Öffnen des Kreativinventars (bis 2.0.1 im Code, gefixt in 2.0.2).
-
-Bietet 10 niedliche und gruselige Halloween-Dekorationsblöcke.
+- Jars, Branches, Ranges und Tags: [`../Docs/VERSIONEN.md`](../Docs/VERSIONEN.md). NeoForge ab `develop_1.21.1`, Forge `develop_1.18.1` - `develop_1.21` plus `develop_1.21.1_forge`.
+- Core kommt als Maven-Jar `ManyIdeasCore-<mc>:${mic_version}` aus `ModdingMavenRepositories` (`custom.gradle`). Bis 1.21.1 (auch Forge) ist `<mc>` = `${minecraft_version}`, ab 1.21.2 `${mic_minecraft_version}` - bewusst getrennt, damit ein Halloween-Jar gegen das Core-Jar der niedrigsten Version kompiliert und mehrere Core-Jars abdecken kann (ein Jar 1.21.2 - 1.21.11 auf sechs Core-Jars, Bytecode identisch).
+- Die 1.21.1-Releases bis 2.0.1 hatten Range bis 1.21.10, laden wegen Core aber nur auf 1.21.1.
+- CurseForge-Projekt `689461`, Modrinth `ieztyjIS`.
 
 ## Abhängigkeiten
 
-- **ManyIdeas Core** (`manyideas_core`) - Required
-
-## Projektstruktur
-
-```
-src/main/java/de/geheimagentnr1/manyideas_halloween/
-├── ManyIdeasHalloween.java                # Haupt-Mod-Klasse (erweitert AbstractMod)
-└── elements/
-    ├── block_state_properties/            # Custom BlockState Properties
-    │   └── ModBlockStateProperties.java
-    ├── blocks/                            # Block-Definitionen
-    │   └── ModBlocksRegisterFactory.java
-    └── creative_mod_tabs/                 # Creative-Tab Registration
-        ├── ManyIdeasHalloweenCreativeModeTabFactory.java
-        └── ModCreativeModeTabRegisterFactory.java
-```
+- **ManyIdeasCore** (`manyideas_core`, required) - `AbstractMod`, Registrierung, Tischsägen-Rezepttypen (`manyideas_core:table_sawing_stone|iron|diamond`).
+- Keine RecipesLibrary. Forge 1.20 - 1.21.1-Forge zusätzlich MinecraftForgeAPI ([`../Docs/forge/README.md`](../Docs/forge/README.md)).
 
 ## Architektur
 
-Dieser Mod erweitert `AbstractMod` aus ManyIdeas Core:
-```java
-@Mod( ManyIdeasHalloween.MODID )
-public class ManyIdeasHalloween extends AbstractMod {
-    @Override
-    protected void initMod() {
-        ModBlocksRegisterFactory modBlocksRegisterFactory = registerEventHandler( new ModBlocksRegisterFactory() );
-        registerEventHandler( new ModCreativeModeTabRegisterFactory( modBlocksRegisterFactory ) );
-    }
-}
-```
+- `ManyIdeasHalloween` erweitert Core-`AbstractMod` (Forge 1.20+: aus MinecraftForgeAPI), registriert `ModBlocksRegisterFactory` + `ModCreativeModeTabRegisterFactory`.
+- `elements/blocks/halloween/` - je Block eine Klasse (`AutumnLeavesCarpet`, `Gravestone`, `HayBundle`, `Pitchfork`, `PumpkinLantern`, `Scarecrow`, `Skeleton`, `SpiderPlushi`, `Spiderweb`, `WreathWheat`).
+- `elements/block_state_properties/ModBlockStateProperties`, `elements/creative_mod_tabs/` (Blöcke über `getDisplayBlocks()`, `getDisplayItems()` leer).
+- Reine Dekorationsblöcke ohne BlockEntity und ohne Netzwerk; die meiste Arbeit beim Portieren steckt in Ressourcen (Modelle, Item-Definitionen, Rezepte, Loot).
 
-## Code-Stil
+## Funktionen, Befehle, Konfiguration
 
-- **Annotations**: `@NotNull` aus `org.jetbrains.annotations`
-- **Lombok**: Projekt nutzt Lombok
-- **Formatierung**: Leerzeichen nach `(` und vor `)` bei Methodenaufrufen
+Keine Befehle, keine Config. Der Herbstlaub-Teppich ist kompostierbar.
 
-## Build & Test
+## Fallstricke
 
-```bash
-./gradlew build
-./gradlew runClient
-./gradlew runServer
-```
+- **Registrierung ab 1.21.2:** `RegistryEntry.create( name, () -> new X() )`; Blöcke, die direkt Vanilla-Klassen erweitern, setzen die ID mit `RegistryHelper.withBlockId(..)` (siehe Core).
+- **Kette der hängenden Kürbislaterne:** MC 1.21.9 benennt `block/chain` in `block/iron_chain` um. Basis-Modelle nutzen `iron_chain`; Overlay `mc_1_21_2` in `pack.mcmeta` mit `formats` **und** `min_format`/`max_format` `[34,64]` liefert für 1.21.2 - 1.21.8 die alten Modelle mit `block/chain`. Ein Overlay ab Format 65 mit `formats` verwirft der 1.21.9+-Client komplett - nur im Client-Log sichtbar. 26.x-Branches ohne Overlay.
+- **Kompostierbarkeit:** NeoForge liest nur die Data-Map `data/neoforge/data_maps/item/compostables.json` (bis 26.2); ab 26.3 `Item.Properties.compostable(..)` + `data/manyideas_halloween/context_int_provider/compostable/autumn_leaves_carpet.json`.
+- **Creative-Tab:** nie dieselben Items über `getDisplayBlocks()` und `getDisplayItems()` ausgeben - ab NeoForge 26.2.0.88 Absturz beim Öffnen des Kreativinventars (bis 2.0.1 betroffen).
+- **26.3:** Loot-Tabellen in beiden Formaten (`conditions`/`functions` und `condition`/`modifier`).
+- Rezept-JSON ab 1.21.2: Vanilla-Ingredients als String, Item-Definitionen unter `assets/manyideas_halloween/items` ab 1.21.4.
 
-## Deployment
+## Testen
 
-- **CurseForge**: `./gradlew curseforge`
-- **Modrinth**: `./gradlew modrinth`
+- Allgemein: [`../Docs/testing/README.md`](../Docs/testing/README.md). Mit passendem Core-Jar in Server-Pack und Client-Instanz.
+- Prüfpunkte: Kürbislaterne mit Kette auf 1.21.8 **und** 1.21.9+ (Client-Log auf verworfene Overlays/Modelle), Herbstlaub-Teppich im Komposter, Kreativinventar öffnen, Tischsägen-Rezepte, Blöcke abbauen (Drops).
 
-## Testing
+## Links
 
-### Java-Versionen
-
-Verschiedene Java-Versionen sind unter `C:\Program Files\Eclipse Adoptium` installiert. Für einen Gradle-Build muss die passende Java-Version gewählt werden:
-
-```powershell
-# Java 21 für MC 1.20.5+ (NeoForge)
-$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-21.0.12.8-hotspot"
-./gradlew build
-```
-
-### Unit Tests (JUnit 5)
-
-Für reine Logik-Tests ohne Minecraft-Abhängigkeiten:
-
-```bash
-./gradlew test
-```
-
-Tests liegen unter `src/test/java/`. Ergebnisse: `build/reports/tests/test/index.html`
-
-### NeoForge GameTest Framework
-
-Für Integration Tests in einer echten Minecraft-Umgebung:
-
-```bash
-./gradlew runGameTestServer
-```
-
-Der triviale GameTest wurde beim 1.21.2-Port entfernt (annotationsbasierte GameTests gibt es ab 1.21.5 nicht mehr; im 1.21.1-Branch noch vorhanden).
-
-### CI/CD (GitHub Actions)
-
-Der Workflow `.github/workflows/build-and-test.yml` führt automatisch aus:
-1. **Build**: Kompiliert den Mod
-2. **Unit Tests**: Führt JUnit Tests aus
-3. **GameTests**: Startet GameTestServer (optional)
-
-### Was kann automatisiert getestet werden?
-
-| Aspekt | Automatisiert? | Methode |
-|--------|----------------|---------|
-| Utility-Klassen | ✅ | JUnit |
-| Config-Parsing | ✅ | JUnit |
-| Commands | ✅ | GameTest |
-| Block/Item-Verhalten | ✅ | GameTest |
-| Multi-MC-Version | ⚠️ Pro Branch | CI Matrix |
-
-## Referenzen
-
-- [NeoForge Migration Primer](https://docs.neoforged.net/primer/docs/) — Dokumentiert API-Aenderungen zwischen Minecraft/NeoForge-Versionen; nuetzlich fuer die Pruefung von Breaking Changes beim Upgrade auf neue Versionen
-
----
-
-## Wissensdatenbank
-
-Versionsübergreifende Migrations- und Entwicklungs-Erkenntnisse (Breaking Changes, Fixes, Testumgebungs-Patterns) werden zentral in [`../Docs/`](../Docs/) gepflegt. Bei neuen relevanten Erkenntnissen dort ergänzen, nicht nur hier.
+- Wiki: https://github.com/GeheimagentNr1/ManyIdeasHalloween/wiki
+- CurseForge: https://www.curseforge.com/minecraft/mc-mods/manyideas-halloween, Modrinth: https://modrinth.com/mod/ieztyjIS
+- [`../Docs/migrations/1.21.1-to-1.21.2.md`](../Docs/migrations/1.21.1-to-1.21.2.md) 4i, [`../Docs/migrations/1.21.11-to-26.1.md`](../Docs/migrations/1.21.11-to-26.1.md), [`../Docs/migrations/BREAKING_CHANGES.md`](../Docs/migrations/BREAKING_CHANGES.md)
